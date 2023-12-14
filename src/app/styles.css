@@ -1,0 +1,371 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", san´s-serif;  }
+
+.fondox{
+background: url(https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148817571.jpg?t=st=1653865409~exp=1653866009~hmac=8b4f03c9d15332480a6e1cd74e7c4135fe72980ebf3fbeee41c873cb936503e1&w=2000) no-repeat center center;
+background-size: cover;    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+.p-dropdown{
+    width:100% !important;  
+    /* height:75%;    */
+  }
+  .p-inputtext{
+    width:100% !important;  
+  }
+  
+  .p-calendar{
+    width:100%;  
+  }
+  .p-inputnumber{
+    width:100%;  
+  }
+  .button{
+    width:100%;      
+  }  
+  .p-toolbar {
+      background-color: white;
+      position: fixed; 
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      height: 69px;
+      box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%);
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 0.2rem !important;
+      border-radius: 6px;
+  }
+
+  .p-button-rounded{
+    box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%);
+    height:85%;  
+  }
+  .button_qp{
+    box-shadow: 0 8px 8px 0 rgb(0 0 0 / 20%);
+    height:85%;  
+  }
+  .p-button-text {
+    height:0.1rem;  
+    padding: 0%;
+  }
+
+  .ancho100{
+    width: 100%;
+  }
+  .ancho90{
+    width: 90%;
+  }
+  /* .primary-color{
+    color:    #0a1218;
+  } */
+.titulox{
+  padding: 10px;
+  text-align: left;
+  background: #102738;
+  color: white;
+  font-size: 17px;
+  font-weight:bold;
+}
+
+.sidenav{
+  z-index: 998;
+  background-color: white;  
+}
+
+body{
+  background-color:rgb(248, 248, 248)
+}
+
+.material-icons{
+    color: white;
+}
+
+
+.input-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: right;
+    min-height: 1.5rem;
+    padding: 0.5rem 1rem !important;
+}
+
+@media screen and (max-width: 764px) {
+  .input-label {
+    text-align: left;
+  }
+}
+
+.p-checkbox .p-checkbox-box {
+  transform: scale(1.2);  
+}
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  transform: scale(1);  
+  background-color: #005691 !important;
+}
+.form-check-input{
+  transform: scale(1.0);  
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #005691 !important;
+}
+.mat-checkbox-inner-container{
+  transform: scale(1.5); 
+}
+
+.shadow{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.tarjeta-ancho{
+  width:18em;
+}
+/* shadow{
+  box-shadow: 10px 5px 5px black; */
+/* } */
+
+.fondo-tarjeta{
+  background-color: #fff;
+}
+
+.input-label{
+  font-size:0.8em;
+}
+
+.p-component {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem !important;
+  font-weight: normal;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: left;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 1px 0;
+  padding: 0.5rem 1rem !important;
+  height: 0.4em;
+  font-size:small;
+}
+
+
+.ui-button.ui-button-icon-only .ui-button-text{
+  padding: 5px 0px !important;
+}
+.ui-table-scrollable-wrapper {
+overflow: auto !important;
+}
+
+.ui-table-scrollable-header, .ui-table-scrollable-body, .ui-table-scrollable-footer {
+overflow: visible !important;
+}
+
+.p-inputtext {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  color: #495057;
+  background: #ffffff;
+  padding: 0.3rem 1.9rem !important;
+  border: 1px solid #ced4da;
+  transition: background-color 0.1s, color 0.1s, border-color 0.1s, box-shadow 0.1s;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 6px;
+}
+
+.fade-in {
+  animation: fadeIn ease 1.5s;
+  -webkit-animation: fadeIn ease 1.5s;
+  -moz-animation: fadeIn ease 1.5s;
+  -o-animation: fadeIn ease 1.5s;
+  -ms-animation: fadeIn ease 1.5s;
+}
+
+
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+/* The style below is just for the appearance of the example div */
+
+.style {
+  width:90vw; height:90vh;
+  text-align:center;
+  padding-top:calc(50vh - 50px);
+  margin-left:5vw;
+  border:4px double #F00;
+  background-color:#000;
+}
+.style p {
+  color:#fff;
+  font-size:50px;
+}
+
+.is-required:after {
+  content: '*';
+  margin-left: 3px;
+  color: red;
+  font-weight: bold;
+}
+
+input[type="text"]:disabled {
+  background: rgb(217, 217, 217);
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+.p-datatable .p-datatable-thead > tr > th{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.p-tooltip>.p-tooltip-text {
+  width: 12em !important;
+  text-align: center;
+}
+
+
+
+.mat-form-field-appearance-outline .mat-form-field-infix{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  color: #495057;
+  background: #ffffff;
+  padding: 0.48rem 2.4rem !important;
+  border: 1px solid #ced4da;
+  width: 100%;  
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 6px; 
+}
+
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+ 
+  box-shadow: 0 0 5pt 0.4pt #2775da;
+  outline-width: 0px;
+    /* outline: 1px solid #4D80CA !important; */
+
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+  padding:0% !important;
+  margin-top: 0em !important;
+  width: 100% !important;
+  position: relative;
+}
+
+.mat-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  width: 113% !important;
+}
+
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  height: 0px;
+}
+
+.p-paginator .p-dropdown  {
+  padding-right: 0;
+  height:2.3rem !important;  
+}
+
+.p-tabview-title {
+    line-height: 0.1em !important;
+}
+
+.p-datepicker table td {
+  padding: 0rem !important;
+}
+
+.p-calendar {
+  height:2.3rem !important;  
+}
+
+.p-datepicker-header {
+  display: flex !important; 
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10323233322323233223 o !important;
+}
+
+.ui-autocomplete{
+  width: 100% !important;
+  }
+  .ui-autocomplete-input{
+  width: 100% !important;
+  }
+  .ui-autocomplete-multiple {
+  width: 100% !important;
+  }
+  .p-autocomplete {
+  width: 100% !important;
+  }
+  .ui-autocomplete-multiple-container {
+  width: 100% !important;
+  }
+
+  p-dialog .p-dialog-header {
+    border-bottom: 0 none;
+    background: #f5f4f4 !important;
+    /* background: #25313c !important; */
+    /* color: #f5f6f6 !important;     */
+    padding: 0.5rem !important;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
