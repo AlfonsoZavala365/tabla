@@ -1,0 +1,113 @@
+
+<ng-keyboard-shortcuts [shortcuts]="keyboardShortcuts"></ng-keyboard-shortcuts>
+<div class="primetable fondo-tarjeta shadow">   
+    <div *ngIf="!ocultarBotones" class="flex d-flex justify-content-end">
+        <button *ngIf="!ocultarAdd" pButton type="button" class="p-button-rounded p-button-success ancho100" icon="add" tooltipPosition="left" (click)="nuevos()" pTooltip="Nuevo (ctrl + n)"> <span class="material-icons">add</span></button>  
+        &nbsp;&nbsp;
+        <!-- <button pButton label="" class="p-button-rounded bg-black p-mr-2" icon="pi pi-filter-slash" pTooltip="Limpiar Filtros (ctrl + l)" tooltipPosition="left" (click)="clear(dt1)"></button>            
+        &nbsp;&nbsp; -->
+        <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-rounded bg-black p-mr-2" tooltipPosition="left"  pTooltip="Exportar (ctrl + e)" ></button>       
+        &nbsp;&nbsp;
+        <button type="button" pButton pRipple icon="pi pi-refresh" (click)="actualizar()" class="p-button-rounded bg-black p-mr-2" tooltipPosition="left"  pTooltip="Actualizar (ctrl + a)" ></button>             
+    </div>  
+    <div *ngIf="!ocultarBotones">&nbsp;</div>    
+    <p-table #dt1 [columns]="cols" [value]="dataSource"   
+      [reorderableColumns]="true"
+      styleClass="p-datatable-sm"  
+      [resizableColumns]="true" 
+      [paginator]="false"       
+      scrollDirection="both"
+      scrollHeight="420px"
+      selectionMode="single"          
+      sortMode="multiple"       
+      [multiSortMeta]="[{field:  columOrder, order: 1}]"          
+    >    
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <!-- <th style="width: 3rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th> -->
+            <th style="width: 3rem" >
+              </th>
+              <!-- pSortableColumn="{{col.field}}"  -->
+            <th *ngFor="let col of columns"  [hidden]="col.hide" >                                        
+                <div class="p-d-flex p-jc-between p-ai-center">
+                  {{col.header}}
+                  <!-- <p-sortIcon [hidden]="col.image" field="col.field" pReorderableColumn></p-sortIcon>
+                  <p-columnFilter [hidden]="col.image" type="text" field="{{col.field}}" display="menu"  matchMode="contains"></p-columnFilter> -->
+                </div>
+            </th>          
+            <!-- <th *ngIf="!ocultarBotones">
+                <div class="p-d-flex">
+                    <button pButton label="" class="p-button-rounded bg-blue-900 p-mr-2" icon="pi pi-filter-slash" pTooltip="Limpiar Filtros" tooltipPosition="left" (click)="clear(dt1)"></button>            
+                    &nbsp;&nbsp;
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-rounded bg-blue-900 p-mr-2" tooltipPosition="left"  pTooltip="Exportar a EXCEL" tooltipPosition="bottom"></button>       
+                </div>                   
+            </th> -->
+        </tr>
+      </ng-template>    
+      <ng-template pTemplate="body" let-rowData let-columns="columns" > 
+        <tr>
+            <!-- <td>
+                <p-tableCheckbox ></p-tableCheckbox>
+            </td> -->     
+            
+          <td *ngIf="!ocultarBotones">
+              <button pButton pRipple icon="pi pi-pencil"
+              (click)="filaSeleccionada(rowData)"  *ngIf="PermisoEditar && botonEditar"            
+              class="p-button-text p-button-warning p-mr-2"
+              pTooltip="Editar" tooltipPosition="left">
+              </button>
+              <span>&nbsp;&nbsp;&nbsp;</span>
+              
+              <button pButton pRipple icon="pi pi-trash" *ngIf="botonElimina && PermisoElimina" 
+              (click)="eliminaFila(rowData)"    
+              class="p-button-text p-button-danger p-mr-1"
+              pTooltip="Eliminar" tooltipPosition="left"></button>   
+              
+              <button pButton pRipple icon="pi pi-ban" *ngIf="botonBloquea " 
+              (click)="eliminaFila(rowData)"    
+              class="p-button-text p-button-danger p-mr-1"
+              pTooltip="Bloquear" tooltipPosition="left"></button>   
+              
+              <!-- <span>&nbsp;&nbsp;&nbsp;</span>
+              <p-inputSwitch *ngIf="botonBloquea==true && PermisoElimina && PermisoBloquear"
+              (onChange)="activaDesactiva(rowData)" 
+              [ngModel]="(rowData.status === 1)?true:false" 
+               pTooltip=" Activar / Desactivar" tooltipPosition="left"></p-inputSwitch>
+              <span>&nbsp;&nbsp;&nbsp;</span> -->
+            </td> 
+            <td *ngFor="let col of columns" [pSelectableRow]="rowData" [hidden]="col.hide" >                
+               <div *ngIf="(col.moneda)" [hidden]="col.image">{{rowData[col.field] | currency:"MXN":"$": '1.0-0'  }}  </div>               
+               <div *ngIf="!(col.moneda)" [hidden]="col.image" [hidden]="col.boton">{{rowData[col.field]}}</div>  
+               <div *ngIf="(col.boton)"><button pButton pRipple style="padding: 0.5em; ;"
+                [ngClass]=" rowData[col.field] === 'ACTIVO'? 'p-button-text p-button-success p-mr-1': 'p-button-text p-button-danger p-mr-1'"
+                pTooltip=" Activar / Desactivar" (click)="activarDesactivar_click( rowData )"  
+                >{{rowData[col.field]}}</button></div>               
+               <img *ngIf="col.image" [hidden]="!col.image" [src]="rowData[col.field]" [alt]="rowData.foto" width="150px" height="100px"
+               style="min-width:70; min-height:65;" class="shadow" />             
+            </td>          
+            
+        </tr>
+    </ng-template>    
+    <ng-template pTemplate="emptymessage">
+      <!-- <tr [hidden]="tokenService.ocultaCargando">        
+        <td [colSpan]=cols.length style=" text-align: center;" >          
+          <p-progressSpinner></p-progressSpinner>                      
+        </td>                      
+      </tr> -->
+      <tr>
+        <td [colSpan]=cols.length [hidden]="sinData" >La consulta no regresó registros.</td>
+      </tr>
+    </ng-template>   
+    </p-table>
+    
+    <p-paginator #pagina [rows]="filas" [totalRecords]="total_registros" [pageLinkSize]="4" [hidden]="ocultarPaginador"
+    [showCurrentPageReport]="true"  [first]="primeraFila"
+    [rowsPerPageOptions]="[5,10,25,50]"     
+    currentPageReportTemplate="Registro {first} al {last}... Total de registros: {totalRecords}"
+    (onPageChange)="paginate($event)"> </p-paginator>
+    </div>
+  
+
+    
